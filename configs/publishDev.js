@@ -16,7 +16,7 @@ devContent.version = semver.inc(devContent.version, "patch");
 fs.writeFileSync(path.join(__dirname, "dev.json"), JSON.stringify(devContent, null, 4));
 
 // Package extension
-var command = `tfx extension publish --overrides-file configs/dev.json --manifest-globs vss-extension.json --extension-id ${extensionId}-dev --auth-type PAT --token <<MY_TOKEN>> --service-url http://localhost:8080/tfs`;
+var command = `./node_modules/.bin/tfx extension publish --overrides-file configs/dev.json --manifest-globs vss-extension.json --extension-id ${extensionId}-dev --auth-type PAT --token <<MY_TOKEN>> --service-url http://localhost:8080/tfs`;
 exec(command, (error, stdout) => {
     if (error) {
         console.error(`Could not create package: '${error}'`);

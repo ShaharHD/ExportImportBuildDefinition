@@ -3,7 +3,7 @@ import BuildRestClient = require("TFS/Build/RestClient");
 import BuildContracts = require("TFS/Build/Contracts");
 import CommonContracts = require("TFS/DistributedTask/Contracts");
 import TaskAgentRestClient = require("TFS/DistributedTask/TaskAgentRestClient");
-import { saveAs } from "filesaver.js";
+import { saveAs } from "file-saver";
 import { DefinitionMetaData, CustomTask, CustomEndpoint } from "./DefinitionMetaData";
 import { BaseDefinition } from "./BaseDefinition";
 

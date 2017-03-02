@@ -23,7 +23,7 @@ distManifest.public = true;
 fs.writeFileSync(distManifestPath, JSON.stringify(distManifest, null, 4));
 
 // Package extension
-var command = `tfx extension create --manifest-globs vss-extension.json --no-prompt --json`;
+var command = `./node_modules/.bin/tfx extension create --manifest-globs vss-extension.json --no-prompt --json`;
 console.log(command);
 exec(command, {
     "cwd": "./dist"

@@ -8,7 +8,7 @@ var manifest = require("../vss-extension.json");
 var extensionId = manifest.id;
 
 // Package extension
-var command = `tfx extension publish --overrides-file configs/dev.https.json --manifest-globs vss-extension.json --extension-id ${extensionId}-dev --no-prompt --rev-version --auth-type PAT --token <<MY_TOKEN>> --share-with <<MY_ACCOUNT>>`;
+var command = `./node_modules/.bin/tfx extension publish --overrides-file configs/dev.https.json --manifest-globs vss-extension.json --extension-id ${extensionId}-dev --no-prompt --rev-version --auth-type PAT --token <<MY_TOKEN>> --share-with <<MY_ACCOUNT>>`;
 exec(command, (error, stdout) => {
     if (error) {
         console.error(`Could not create package: '${error}'`);

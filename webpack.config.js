@@ -6,7 +6,7 @@ module.exports = {
     target: "web",
     entry: {
         Vendor: [
-            "./node_modules/filesaver.js/FileSaver.min.js",
+            "./node_modules/file-saver/dist/FileSaver.min.js",
             "./node_modules/uuid/index.js"
         ],
         Export: "./src/ExportBuildDefinition.ts",
@@ -75,4 +75,4 @@ module.exports = {
             //  goes into the vendor chunk)
         })
     ]
-}
+};

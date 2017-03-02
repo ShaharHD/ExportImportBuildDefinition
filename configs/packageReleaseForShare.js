@@ -25,7 +25,7 @@ fs.writeFileSync(distManifestPath, JSON.stringify(distManifest, null, 4));
 console.log("Updated version in the manifest file...")
 
 // Package extension
-var command = `tfx extension create --overrides-file ../configs/release.json --manifest-globs vss-extension.json --extension-id ${extensionId}-dev --no-prompt --json`;
+var command = `./node_modules/.bin/tfx extension create --overrides-file ../configs/release.json --manifest-globs vss-extension.json --extension-id ${extensionId}-dev --no-prompt --json`;
 exec(command, {
     "cwd": "./dist"
 }, (error, stdout) => {

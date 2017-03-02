@@ -6,7 +6,7 @@ module.exports = {
     target: "web",
     entry: {
         Vendor: [
-            "./node_modules/filesaver.js/FileSaver.min.js",
+            "./node_modules/file-saver/dist/FileSaver.min.js",
             "./node_modules/uuid/index.js"
         ],
         Export: "./src/ExportBuildDefinition.ts",
@@ -19,6 +19,19 @@ module.exports = {
     externals: [
         /^VSS\/.*/, /^TFS\/.*/, /^q$/
     ],
+
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
+                    chunks: 'all'
+                }
+            }
+        }
+    },
+
     resolve: {
         extensions: [
             ".webpack.js",
@@ -64,16 +77,16 @@ module.exports = {
             { from: "./intro.md", to: "intro.md" },
             { from: "./license.txt", to: "license.txt" }
         ]),
-        new webpack.optimize.UglifyJsPlugin({
-            comments: false,
-            compress: {
-                warnings: true,
-                drop_console: true
-            }
-        }),
-	new webpack.optimize.CommonsChunkPlugin({
-            name: "Vendor",
-            minChunks: Infinity,
-        })
+        // new webpack.optimize.UglifyJsPlugin({
+        //     comments: false,
+        //     compress: {
+        //         warnings: true,
+        //         drop_console: true
+        //     }
+        // }),
+	// new webpack.optimize.CommonsChunkPlugin({
+    //         name: "Vendor",
+    //         minChunks: Infinity,
+    //     })
     ]
-}
+};
